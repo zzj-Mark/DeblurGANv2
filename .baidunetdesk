@@ -1,0 +1,63 @@
+# 百度网盘备份说明
+
+## 备份文件清单
+
+### 已备份的.h5大文件
+
+1. **fpn_inception.h5** (233.15MB)
+   - 日期: 2019年11月5日
+   - 用途: DeblurGANv2最佳模型权重文件 (PSNR 29.55/SSIM 0.934)
+   - 本地路径: D:/codeProject/DeblurGANv2/fpn_inception.h5
+   - 备份状态: ✅ 已完成
+   - 百度网盘路径: /.h5/fpn_inception.h5
+   - 备份时间: 2026-05-18 01:33:51
+   - 备份方式: 秒传 (极速上传)
+
+## 备份说明
+
+### 文件重要性
+- fpn_inception.h5 是DeblurGANv2项目的核心预训练模型文件
+- 该文件包含完整的去模糊模型权重，包括InceptionResNetV2 backbone
+- 由于文件较大(233MB)，未包含在GitHub仓库中（已被.gitignore排除）
+
+### 百度网盘备份详情
+- 备份目录: /.h5/
+- 备份工具: baiduPCS-GO v4.0.1
+- 账户: zhuzhengjiesp (UID: 3520761551)
+- 备份日期: 2026年5月18日
+- 上传方式: 秒传 (极速上传，仅需2.2秒)
+- 验证状态: ✅ 文件完整，大小匹配
+
+### 文件恢复指南
+如需从百度网盘恢复文件到本地：
+
+```bash
+# 方法1: 使用baiduPCS-GO命令行工具
+cd D:/codeProject/DeblurGANv2
+baiduPCS-GO download /.h5/fpn_inception.h5
+
+# 方法2: 使用百度网盘客户端/网页版
+# 1. 登录百度网盘
+# 2. 进入 /.h5/ 目录
+# 3. 下载 fpn_inception.h5 到项目目录
+```
+
+### 项目使用说明
+1. 从GitHub克隆项目: `git clone https://github.com/zzj-Mark/DeblurGANv2.git`
+2. 从百度网盘恢复fpn_inception.h5文件到项目根目录
+3. 运行去模糊测试: `python predict.py`
+
+### GitHub仓库
+- 项目地址: https://github.com/zzj-Mark/DeblurGANv2
+- .gitignore配置: 已排除*.h5文件以避免仓库过大
+- 大文件管理: 通过百度网盘进行备份和分发
+
+### 技术说明
+- InceptionResNetV2预训练权重已包含在fpn_inception.h5中
+- 项目已修改为支持CPU模式运行
+- 配置文件已优化，禁用单独的ImageNet预训练权重下载
+
+---
+最后更新: 2026-05-18 01:33:51
+备份状态: ✅ 完成
+验证状态: ✅ 通过
