@@ -18,8 +18,8 @@ class Predictor:
         with open('config/config.yaml',encoding='utf-8') as cfg:
             config = yaml.load(cfg, Loader=yaml.FullLoader)
         model = get_generator(model_name or config['model'])
-        model.load_state_dict(torch.load(weights_path)['model'])
-        self.model = model.cuda()
+        model.load_state_dict(torch.load(weights_path, map_location='cpu')['model'])
+        self.model = model.cuda() if torch.cuda.is_available() else model
         self.model.train(True)
         # GAN inference should be in train mode to use actual stats in norm layers,
         # it's not a bug
@@ -62,9 +62,9 @@ class Predictor:
     def __call__(self, img: np.ndarray, mask: Optional[np.ndarray], ignore_mask=True) -> np.ndarray:
         (img, mask), h, w = self._preprocess(img, mask)
         with torch.no_grad():
-            inputs = [img.cuda()]
+            inputs = [img.cuda() if torch.cuda.is_available() else img]
             if not ignore_mask:
-                inputs += [mask]
+                inputs += [mask.cuda() if torch.cuda.is_available() else mask]
             pred = self.model(*inputs)
         return self._postprocess(pred)[:h, :w, :]
 
@@ -134,9 +134,5 @@ def get_files():
 
 
 if __name__ == '__main__':
-  #  Fire(main)
-#增加批量处理图片：
-    img_path=get_files()
-    for i in img_path:
-        main(i)
-    # main('test_img/tt.mp4')
+    # Process single test image
+    main('test_img/000027.png')
