@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /e/codeProject/deblurganv2 -type f ( -name \"CLAUDE.md\" -o -name \".cursorrules\" -o -name \"copilot-instructions.md\" ))",
+      "Bash(python predict.py test_img/000027.png --weights_path fpn_inception.h5 --out_dir submit/)",
+      "Bash(python -m venv .venv)",
+      "Bash(.venv/Scripts/pip install -r requirements.txt)",
+      "Bash(\"E:\\codeProject\\deblurganv2\\.venv\\Scripts\\python.exe\" --version)",
+      "Bash(.venv/Scripts/pip install torch torchvision torchsummary pretrainedmodels numpy opencv-python-headless joblib \"albumentations>=1.0.0\" tqdm glog tensorboardx fire)",
+      "Bash(.venv/Scripts/pip install scikit-image)",
+      "Bash(.venv/Scripts/python predict.py test_img/000027.png --weights_path fpn_inception.h5 --out_dir submit/)",
+      "Bash(cat \"C:\\Users\\pc\\codeProject\\pic_exec\\AI生成人像-彩色图像增强.md\")",
+      "Bash(.venv/Scripts/python enhance_submit.py submit/ submit_enhanced/)",
+      "Bash(cat .gitignore)",
+      "Bash(git add .gitignore CLAUDE.md .claude/ _batch_deblur.py _crop.py _crop2.py enhance_submit.py test_img/000001.png test_img/000019.png test_img/000144_19.png test_img/000174_5.png test_img/000201.png test_img/011658_19.png test_img/016356_21.png test_img/023166_7.png test_img/crop_blur1.png test_img/crop_deblur1.png test_img/kohler_blur_1.png test_img/kohler_blur_2.png test_img/kohler_blur_3.png test_img/kohler_blur_4.png test_img/kohler_visual.png test_img/restore_visual.png)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
